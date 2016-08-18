@@ -2,18 +2,38 @@
 // -------------------------
 // Specs: https://goo.gl/pEV9E1
 
-.form {
-  margin-left: auto;
-  margin-right: auto;
 
-  // Max width of form fields should be 500px. It is set to 530px here to
-  // account for the padding
-  max-width: 530px;
+// Backdrop which appears behind forms during inline editing
+.form__backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $zindex-modal-backdrop;
 
-  // Account form padding is set to align left edge of form with left edge of
-  // masthead
-  padding-left: 15px;
-  padding-right: 15px;
+  background-color: $white;
+  opacity: 0.5;
+}
+
+// Controls for inline editing
+// FIXME - Avoid cross-component selectors
+.form-actions-buttons {
+  .env-js-capable & {
+    display: none;
+  }
+
+  .env-js-capable &.is-visible,
+  .env-js-timeout & {
+    display: block;
+    z-index: $zindex-modal-content;
+    margin-top: 10px;
+  }
+}
+
+.form-actions-buttons.is-saving .form__btn {
+  opacity: .5;
 }
 
 .form-header {

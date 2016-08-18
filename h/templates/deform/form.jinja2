@@ -3,10 +3,13 @@
       method="{{ field.method }}"
       enctype="multipart/form-data"
       accept-charset="utf-8"
-      {% if field.css_class -%}
-      class="{{ field.css_class }}"
-      {%- endif -%}>
+      class="form {{ field.css_class or '' }} js-form"
+      {% if inline_editing %}
+      data-inline-editing="true"
+      {% endif %}>
   <input type="hidden" name="__formid__" value="{{ field.formid }}" />
+
+  <div class="form__backdrop js-form-backdrop"></div>
 
   {%- for f in field.children -%}
     {{ field.renderer(field.widget.item_template, field=f, cstruct=cstruct.get(f.name, null)) }}
@@ -19,12 +22,12 @@
     {% if feature('activity_pages') %}
     <div class="u-stretch"></div>
     {% endif %}
-    <div class="form-actions-buttons">
+    <div class="form-actions-buttons js-form-buttons">
       {%- for button in field.buttons -%}
         <button id="{{ field.formid + button.name }}"
                 name="{{ button.name }}"
                 type="{{ button.type }}"
-                class="btn{% if button.css_class %} {{ button.css_class }}{% endif %}"
+                class="form__btn btn{% if button.css_class %} {{ button.css_class }}{% endif %} js-form-btn"
                 value="{{ _(button.value) }}"
                 {%- if button.disabled -%}
                 disabled="disabled"
@@ -32,6 +35,7 @@
                 >
         {{ _(button.title) }}
         </button>
+        <button class="btn btn--cancel is-hidden js-cancel-btn">Cancel</button>
       {% endfor -%}
     </div>
   </div>
