@@ -1,22 +1,23 @@
 'use strict';
 
-var scrollIntoView = require('scroll-into-view');
+const scrollIntoView = require('scroll-into-view');
 
-function SearchBucketController(element) {
-  this.scrollTo = scrollIntoView;
+class SearchBucketController {
+  constructor(element) {
+    this.scrollTo = scrollIntoView;
 
-  var header = element.querySelector('.js-header');
-  var content = element.querySelector('.js-content');
-  var self = this;
+    const header = element.querySelector('.js-header');
+    const content = element.querySelector('.js-content');
 
-  header.addEventListener('click', function () {
-    element.classList.toggle('is-expanded');
-    content.classList.toggle('is-expanded');
+    header.addEventListener('click', () => {
+      element.classList.toggle('is-expanded');
+      content.classList.toggle('is-expanded');
 
-    if (element.classList.contains('is-expanded')) {
-      self.scrollTo(element);
-    }
-  });
+      if (element.classList.contains('is-expanded')) {
+        this.scrollTo(element);
+      }
+    });
+  }
 }
 
 module.exports = SearchBucketController;
