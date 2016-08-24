@@ -3,5 +3,8 @@
     "target": "ES5",
     "module": "commonjs",
     "allowJs": true
-  }
+  },
+  "files": [
+    "h/static/scripts/site.js"
+  ]
 }

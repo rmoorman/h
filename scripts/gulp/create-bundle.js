@@ -10,6 +10,7 @@ var browserify = require('browserify');
 var exorcist = require('exorcist');
 var gulpUtil = require('gulp-util');
 var mkdirp = require('mkdirp');
+var tsify = require('tsify');
 var uglifyify = require('uglifyify');
 var watchify = require('watchify');
 
@@ -151,6 +152,10 @@ module.exports = function createBundle(config, buildOpts) {
 
   bundle.add(config.entry || []);
   bundle.external(config.external || []);
+
+  if (config.es2015) {
+    bundle.plugin(tsify);
+  }
 
   if (config.minify) {
     bundle.transform({global: true}, uglifyify);

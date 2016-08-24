@@ -44,6 +44,7 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       configure: function (bundle) {
+        bundle.plugin('tsify');
         bundle.plugin('proxyquire-universal');
       },
     },

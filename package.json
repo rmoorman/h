@@ -32,6 +32,8 @@
     "raven-js": "^2.0.2",
     "scroll-into-view": "^1.7.1",
     "through2": "^2.0.1",
+    "tsify": "^1.0.3",
+    "typescript": "^2.0.0",
     "uglifyify": "^3.0.1",
     "vinyl": "^1.1.1",
     "watchify": "^3.7.0",

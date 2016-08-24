@@ -87,7 +87,8 @@ var bundleBaseConfig = {
 var bundles = [{
   // Public-facing website
   name: 'site',
-  entry: './h/static/scripts/site',
+  entry: './h/static/scripts/site.js',
+  es2015: true,
 },{
   // Admin areas of the site
   name: 'admin-site',
