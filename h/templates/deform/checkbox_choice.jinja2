@@ -9,7 +9,8 @@
              name="checkbox"
              value="{{ value }}"
              id="{{ field.oid }}-{{ loop.index0 }}"
-             class="form-checkbox__input {% if field.widget.css_class -%}
+             class="form-checkbox__input js-form-input
+             {% if field.widget.css_class -%}
                {{ field.widget.css_class }}
              {% endif -%}"
              {%- if field.error -%}
