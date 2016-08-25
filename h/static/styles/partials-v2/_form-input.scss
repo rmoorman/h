@@ -50,14 +50,29 @@
     color: $grey-5;
   }
 
+  .form-input__hint-icon {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    cursor: help;
+
+    .env-js-capable & {
+      display: block;
+    }
+  }
+
   .form-input__hint {
     @include font-normal;
 
+    color: $grey-5;
+    left: $h-padding;
     position: absolute;
     top: 40px;
-    left: $h-padding;
 
-    color: $grey-5;
+    .env-js-capable & {
+      display: none;
+    }
   }
 
   // The actual <input> element for the field
@@ -78,6 +93,10 @@
 
   .form-input__input.has-hint {
     padding-top: $top-padding + $hint-height;
+
+    .env-js-capable & {
+      padding-top: $top-padding;
+    }
   }
 
   .form-input__input:hover {
@@ -139,6 +158,21 @@
       left: $h-padding;
       right: $h-padding;
       max-width: unset;
+    }
+  }
+
+  // On touch devices display hint text instead of tooltip.
+  @include touch-input {
+    .form-input > .form-input__hint-icon {
+      display: none;
+    }
+
+    .form-input > .form-input__hint {
+      display: block;
+    }
+
+    .form-input > .form-input__input.has-hint {
+      padding-top: $top-padding + $hint-height;
     }
   }
 }

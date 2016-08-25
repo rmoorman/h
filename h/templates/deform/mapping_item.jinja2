@@ -34,6 +34,7 @@
 {% endif -%}
 
 {% if field.schema.hint and feature('activity_pages') %}
+<div class="form-input__hint-icon js-tooltip" aria-label="{{ field.schema.hint }}">{{ svg_icon('info_icon') }}</div>
 <div class="form-input__hint" id="hint-{{ field.oid }}">{{ field.schema.hint }}</div>
 {% endif %}
 

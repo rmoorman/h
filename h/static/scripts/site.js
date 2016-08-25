@@ -12,6 +12,7 @@ var CreateGroupFormController = require('./controllers/create-group-form-control
 var DropdownMenuController = require('./controllers/dropdown-menu-controller');
 var FormSelectOnFocusController = require('./controllers/form-select-onfocus-controller');
 var SearchBucketController = require('./controllers/search-bucket-controller');
+var TooltipController = require('./controllers/tooltip-controller');
 var upgradeElements = require('./base/upgrade-elements');
 
 var controllers = {
@@ -19,6 +20,7 @@ var controllers = {
   '.js-dropdown-menu': DropdownMenuController,
   '.js-select-onfocus': FormSelectOnFocusController,
   '.js-search-bucket': SearchBucketController,
+  '.js-tooltip': TooltipController,
 };
 
 upgradeElements(document.body, controllers);
